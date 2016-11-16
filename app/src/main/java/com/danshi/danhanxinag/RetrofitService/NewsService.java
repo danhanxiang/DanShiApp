@@ -6,11 +6,9 @@ import com.danshi.danhanxinag.model.News;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
-
 /**
- * Created by jiangrui on 2016/11/6.
+ * Created by 20939 on 2016/11/16.
  */
-
 public interface NewsService {
     @GET("keji/")
     Observable<News> getNewsDatas(

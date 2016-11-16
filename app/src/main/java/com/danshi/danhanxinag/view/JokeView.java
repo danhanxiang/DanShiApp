@@ -6,7 +6,7 @@ import com.danshi.danhanxinag.model.ContentlistEntity;
 import java.util.List;
 
 /**
- * Created by JDD on 2016/4/21 0021.
+ * Created by 20939 on 2016/11/16.
  */
 public interface JokeView extends MvpView {
     void refresh(List<ContentlistEntity> data);

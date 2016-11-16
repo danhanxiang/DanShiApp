@@ -4,8 +4,7 @@ package com.danshi.danhanxinag.presenter;
 import com.danshi.danhanxinag.view.MvpView;
 
 /**
- * Every presenter in the app must either implement this interface or extend BasePresenter
- * indicating the MvpView type that wants to be attached with.
+ * Created by 20939 on 2016/11/16.
  */
 public interface Presenter<V extends MvpView> {
 

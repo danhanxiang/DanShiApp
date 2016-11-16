@@ -1,7 +1,7 @@
 package com.danshi.danhanxinag.model;
 
 /**
- * Created by JDD on 2016/4/23 0023.
+ * Created by 20939 on 2016/11/16.
  */
 public class ContentlistEntity {
     private String ct;

@@ -11,9 +11,8 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
-
-/**s
- * Created by JDD on 2016/4/8.
+/**
+ * Created by 20939 on 2016/11/16.
  */
 public interface DanShiApi {
 

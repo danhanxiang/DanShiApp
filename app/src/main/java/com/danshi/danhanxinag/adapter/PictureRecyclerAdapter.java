@@ -13,9 +13,8 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 /**
- * Created by
+ * Created by 20939 on 2016/11/16.
  */
-
 public class PictureRecyclerAdapter extends RecyclerArrayAdapter<Girls.ResultsBean> {
 
     public PictureRecyclerAdapter(Context context) {

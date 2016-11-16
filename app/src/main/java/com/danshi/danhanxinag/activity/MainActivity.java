@@ -21,7 +21,9 @@ import com.danshi.danhanxinag.fragment.StoryFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+/**
+ * Created by 20939 on 2016/11/16.
+ */
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

@@ -3,7 +3,7 @@ package com.danshi.danhanxinag.presenter;
 import com.danshi.danhanxinag.view.JokeView;
 
 /**
- * Created by JDD on 2016/4/21 0021.
+ * Created by 20939 on 2016/11/16.
  */
 public class JokePresenter extends BasePresenter<JokeView> {
 

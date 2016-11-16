@@ -3,7 +3,7 @@ package com.danshi.danhanxinag.model;
 import java.util.List;
 
 /**
- * Created by jiangrui on 2016/11/7.
+ * Created by 20939 on 2016/11/16.
  */
 
 public class Girls {

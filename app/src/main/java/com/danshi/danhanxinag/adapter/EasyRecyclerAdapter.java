@@ -13,9 +13,8 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 
 /**
- * Created by
+ * Created by 20939 on 2016/11/16.
  */
-
 public class EasyRecyclerAdapter extends RecyclerArrayAdapter<News.NewslistBean> {
     public EasyRecyclerAdapter(Context context) {
         super(context);
