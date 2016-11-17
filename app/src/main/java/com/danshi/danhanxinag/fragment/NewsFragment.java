@@ -1,5 +1,6 @@
 package com.danshi.danhanxinag.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,7 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.danshi.danhanxinag.RetrofitService.NewsService;
-import com.danshi.danhanxinag.adapter.EasyRecyclerAdapter;
+import com.danshi.danhanxinag.activity.NewsDetailActivity;
+import com.danshi.danhanxinag.adapter.NewsAdapter;
 import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.model.News;
@@ -37,7 +39,7 @@ public class NewsFragment extends BaseFragment {
     @BindView(R.id.easy_recycler_view)
     EasyRecyclerView easyRecyclerView;
     private int page = 0;
-    private EasyRecyclerAdapter adapter;
+    private NewsAdapter adapter;
 
     public static final String BASE_URL = "http://api.tianapi.com/";
     public static final String APIKEY = "bc880d0a8dd61c0c8af01647c1c97684";
@@ -49,7 +51,7 @@ public class NewsFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         easyRecyclerView.setRefreshing(true);
         easyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new EasyRecyclerAdapter(getActivity());
+        adapter = new NewsAdapter(getActivity());
 
         easyRecyclerView.postDelayed(new Runnable() {
             @Override
@@ -91,13 +93,12 @@ public class NewsFragment extends BaseFragment {
         adapter.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-//                Intent intent = new Intent(getActivity(), DetailActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putString("PicUrl", adapter.getAllData().get(position).getPicUrl());
-//                bundle.putString("ContentUrl", adapter.getAllData().get(position).getUrl());
-//                intent.putExtras(bundle);
-//                startActivity(intent);
-                Snackbar.make(easyRecyclerView, "设置item点击事件", Snackbar.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("PicUrl", adapter.getAllData().get(position).getPicUrl());
+                bundle.putString("ContentUrl", adapter.getAllData().get(position).getUrl());
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         return view;

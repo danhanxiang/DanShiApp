@@ -22,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.danshi.danhanxinag.activity.MeiZhiDetailActivity"/>
+        <activity android:name="com.danshi.danhanxinag.activity.NewsDetailActivity"/>
+        <activity android:name="com.danshi.danhanxinag.activity.AboutMeActivity"/>
     </application>
 
 </manifest>

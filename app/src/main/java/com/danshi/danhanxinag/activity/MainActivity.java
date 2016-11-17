@@ -1,16 +1,14 @@
 package com.danshi.danhanxinag.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
@@ -20,16 +18,13 @@ import com.danshi.danhanxinag.fragment.StoryFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
     @BindView(R.id.nav_view)
     NavigationView navView;
     @BindView(R.id.drawer_layout)
@@ -46,13 +41,6 @@ public class MainActivity extends BaseActivity
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
       /*设置toolbar上的触发NavigationView的按钮*/
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -100,7 +88,7 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_camera:
-                Snackbar.make(getCurrentFocus(), "开发中...", Snackbar.LENGTH_LONG).show();
+                startActivity(new Intent(this,AboutMeActivity.class));
                 break;
             case R.id.nav_gallery:
                 showNewsFragment();
