@@ -23,13 +23,13 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_10"
         android:textColor="@color/bg_color"
-        android:text="Android Studio"/>
+        android:text="Dan Shi"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/bg_color"
-        android:text="github:https://github.com/danhanxiang"/>
+        android:text="https://github.com/danhanxiang"/>
 
 </LinearLayout>

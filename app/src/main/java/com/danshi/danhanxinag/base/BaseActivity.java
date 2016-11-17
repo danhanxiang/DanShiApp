@@ -1,5 +1,8 @@
 package com.danshi.danhanxinag.base;
 
+import android.content.pm.ActivityInfo;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,12 @@ import java.util.List;
  * Created by 20939 on 2016/11/16.
  */
 public class BaseActivity extends AppCompatActivity implements MvpView {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
 
     @Override
     public void showLoading(String msg) {

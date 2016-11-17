@@ -124,7 +124,7 @@ public class MeizhiFragment extends BaseFragment {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
         GankService gankService = retrofit.create(GankService.class);
-        gankService.getPictures(20,page)
+        gankService.getPictures(10,page)
                 .subscribeOn(Schedulers.io())
                 .map(new Func1<Girls, List<Girls.ResultsBean>>() {
                     @Override

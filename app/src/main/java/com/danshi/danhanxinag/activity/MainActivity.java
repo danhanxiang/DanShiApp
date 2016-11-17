@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-
+        showMeizhiFragment();
       /*设置toolbar上的触发NavigationView的按钮*/
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -88,16 +88,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_camera:
-                startActivity(new Intent(this,AboutMeActivity.class));
+                showMeizhiFragment();
                 break;
             case R.id.nav_gallery:
                 showNewsFragment();
                 break;
             case R.id.nav_slideshow:
-                showMeizhiFragment();
+                showStoryFragment();
                 break;
             case R.id.nav_manage:
-                showStoryFragment();
+                startActivity(new Intent(this,AboutMeActivity.class));
                 break;
             case R.id.nav_share:
                 break;

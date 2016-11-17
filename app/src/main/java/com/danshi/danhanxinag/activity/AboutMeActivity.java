@@ -1,10 +1,12 @@
 package com.danshi.danhanxinag.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
@@ -17,10 +19,15 @@ import butterknife.ButterKnife;
  */
 public class AboutMeActivity extends BaseActivity {
 
-    @BindView(R.id.about_me_toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.about_me_imageview)
-    ImageView imageView;
+    @BindView(R.id.iv_about_me)
+    ImageView ivAboutMe;
+
+    @BindView(R.id.detail_tool_bar)
+    Toolbar detailToolBar;
+    @BindView(R.id.collapsing_toolbar_layout)
+    CollapsingToolbarLayout toolbarLayout;
+    @BindView(R.id.detail_web_view)
+    TextView detailWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +35,17 @@ public class AboutMeActivity extends BaseActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_about_me);
         ButterKnife.bind(this);
-        toolbar.setTitle(getString(R.string.about_me));
-        setSupportActionBar(toolbar);
+        toolbarLayout.setTitle(getResources().getString(R.string.about_xiangzi));
+        setSupportActionBar(detailToolBar);
+        /* 显示返回箭头 */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        /* 设置返回箭头点击事件 */
+        detailToolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-        imageView.setImageResource(R.drawable.xiang);
+
     }
 }
