@@ -10,25 +10,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by 20939 on 2016/11/16.
  */
 public class HttpService {
-    private static final String BASEURL ="";
 
+    private static final String BASETESTURL = "http://apis.baidu.com/showapi_open_bus/";
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
             (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
 
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASEURL)
+            .baseUrl(BASETESTURL)
             .client(okHttpClient)
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    private HttpService(){
+    private HttpService() {
+        //construct
 
     }
+    public static <T> T createApi(Class<T> clazz) {
 
-    public static <T> T createApi(Class<T> clazz){
-        return  retrofit.create(clazz);
-
+        return retrofit.create(clazz);
     }
 
 }
+

@@ -65,4 +65,8 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
             t.commit();
         }
     }
+
+    protected <T extends View> T $(View view,int id) {
+        return (T) view.findViewById(id);
+    }
 }

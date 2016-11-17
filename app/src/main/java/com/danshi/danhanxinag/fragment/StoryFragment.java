@@ -52,17 +52,25 @@ public class StoryFragment extends BaseFragment implements JokeView {
     private void initView() {
 
         jokeList = new ArrayList<>();
-        jokeAdapter = new JokeAdapter(view.getContext());
-//        recordRecycleview.setAdapter(jokeAdapter);
+        jokeAdapter = new JokeAdapter(getActivity());
+        easyRecyclerView.setAdapter(jokeAdapter);
 
         jokePresenter = new JokePresenter();
         jokePresenter.attachView(this);
+
+        initData();
     }
+
+    private void initData() {
+        jokePresenter.loadList(page);
+        page++;
+    }
+
 
 
     @Override
     public void refresh(List<ContentlistEntity> data) {
-
+        jokeAdapter.addAll(data);
     }
 
     @Override

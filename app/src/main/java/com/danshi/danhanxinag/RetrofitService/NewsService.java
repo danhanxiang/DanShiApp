@@ -11,8 +11,5 @@ import rx.Observable;
  */
 public interface NewsService {
     @GET("keji/")
-    Observable<News> getNewsDatas(
-            @Query("key") String key,
-            @Query("num") String num,
-            @Query("page") int page);
+    Observable<News> getNewsDatas(@Query("key") String key,@Query("num") String num, @Query("page") int page);
 }

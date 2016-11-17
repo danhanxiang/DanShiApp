@@ -1,7 +1,6 @@
 package com.danshi.danhanxinag.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +20,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -35,33 +36,20 @@ import rx.schedulers.Schedulers;
 public class NewsFragment extends BaseFragment {
     @BindView(R.id.easy_recycler_view)
     EasyRecyclerView easyRecyclerView;
-    private View view;
-
     private int page = 0;
     private EasyRecyclerAdapter adapter;
-
 
     public static final String BASE_URL = "http://api.tianapi.com/";
     public static final String APIKEY = "bc880d0a8dd61c0c8af01647c1c97684";
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (view == null) {
-            view = inflater.inflate(R.layout.news_fragment_layout, container, false);
-            ButterKnife.bind(this, view);
-            initView();
-
-        }
-        return view;
-
-    }
-
-    private void initView() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.news_fragment_layout, container, false);
+        ButterKnife.bind(this, view);
         easyRecyclerView.setRefreshing(true);
         easyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new EasyRecyclerAdapter(getActivity());
-
 
         easyRecyclerView.postDelayed(new Runnable() {
             @Override
@@ -109,18 +97,23 @@ public class NewsFragment extends BaseFragment {
 //                bundle.putString("ContentUrl", adapter.getAllData().get(position).getUrl());
 //                intent.putExtras(bundle);
 //                startActivity(intent);
+                Snackbar.make(easyRecyclerView, "设置item点击事件", Snackbar.LENGTH_LONG).show();
             }
         });
-
-
+        return view;
     }
 
     private void easyGetDatas() {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
+                (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(NewsFragment.BASE_URL)
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
+
+
         NewsService newsService = retrofit.create(NewsService.class);
         newsService.getNewsDatas(NewsFragment.APIKEY, "10", page)
                 .subscribeOn(Schedulers.io())
@@ -139,7 +132,7 @@ public class NewsFragment extends BaseFragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        Snackbar.make(easyRecyclerView, "", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(easyRecyclerView, "error", Snackbar.LENGTH_LONG).show();
                     }
 
                     @Override

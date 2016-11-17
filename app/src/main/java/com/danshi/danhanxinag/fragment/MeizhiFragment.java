@@ -25,8 +25,6 @@ public class MeizhiFragment extends BaseFragment {
     public static final String GANK_URL = "http://gank.io/api/";
     private PictureRecyclerAdapter adapter;
     private int page = 1;
-    @BindView(R.id.pic_recycler_view)
-    EasyRecyclerView pictureRecyclerView;
 
     @Nullable
     @Override
