@@ -14,10 +14,4 @@ public interface MvpView {
 
     void showError(String msg, View.OnClickListener onClickListener);
 
-    void showEmpty(String msg, View.OnClickListener onClickListener);
-
-    void showEmpty(String msg, View.OnClickListener onClickListener, int imageId);
-
-    void showNetError(View.OnClickListener onClickListener);
-
 }

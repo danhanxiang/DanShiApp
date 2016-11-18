@@ -38,21 +38,6 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     }
 
-    @Override
-    public void showEmpty(String msg, View.OnClickListener onClickListener) {
-
-    }
-
-    @Override
-    public void showEmpty(String msg, View.OnClickListener onClickListener, int imageId) {
-
-    }
-
-    @Override
-    public void showNetError(View.OnClickListener onClickListener) {
-
-    }
-
     protected void showContentFragment(BaseFragment to, int container) {
         if (to != null) {
             FragmentTransaction t = getSupportFragmentManager().beginTransaction();

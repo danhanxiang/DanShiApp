@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.fragment.MeizhiFragment;
+import com.danshi.danhanxinag.fragment.MeizhiFragment2;
 import com.danshi.danhanxinag.fragment.NewsFragment;
 import com.danshi.danhanxinag.fragment.StoryFragment;
 
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private NewsFragment mNewsFragment;
     private MeizhiFragment mMeizhiFragment;
     private StoryFragment mStoryFragment;
+    private MeizhiFragment2 mMeizhiFragment2;
 
 
     @Override
@@ -102,11 +104,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             case R.id.nav_share:
                 break;
             case R.id.nav_send:
+                showMeiZhiFragment();
                 break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showMeiZhiFragment() {
+
+        if (mMeizhiFragment2 == null) {
+            mMeizhiFragment2 = new MeizhiFragment2();
+        }
+        showContentFragment(mMeizhiFragment2, R.id.fragment_container);
+
     }
 
     private void showStoryFragment() {

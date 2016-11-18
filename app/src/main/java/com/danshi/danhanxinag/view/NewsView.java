@@ -1,6 +1,6 @@
 package com.danshi.danhanxinag.view;
 
-import com.danshi.danhanxinag.model.ContentlistEntity;
+import com.danshi.danhanxinag.model.News;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface NewsView extends MvpView {
 
-    void refresh(List<ContentlistEntity> data);
+    void refresh(List<News.NewslistBean> data);
 
-    void loadMore(List<ContentlistEntity> data);
+    void loadMore(List<News.NewslistBean> data);
 
 
 }

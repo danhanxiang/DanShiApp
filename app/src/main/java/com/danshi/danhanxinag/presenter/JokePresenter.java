@@ -44,7 +44,6 @@ public class JokePresenter extends BasePresenter<JokeView> {
                     public void onCompleted() {
 
                     }
-
                     @Override
                     public void onError(Throwable e) {
                         getMvpView().showError(null, null);

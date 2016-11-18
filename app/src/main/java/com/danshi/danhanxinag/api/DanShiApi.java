@@ -1,11 +1,13 @@
 package com.danshi.danhanxinag.api;
 
+import com.danshi.danhanxinag.model.GirlsEntity;
 import com.danshi.danhanxinag.model.JokeEntity;
+import com.danshi.danhanxinag.model.MeiZhi;
+import com.danshi.danhanxinag.model.News;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Headers;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 /**
@@ -13,11 +15,48 @@ import rx.Observable;
  */
 public interface DanShiApi {
     @Headers("apikey:83ec99fff780989a5376a1bc595ed5ff")
-    @GET("showapi_joke/joke_text")
+    @GET("showapi_open_bus/showapi_joke/joke_text")
     Observable<JokeEntity> getJoke(@Query("page") int page);
 
-    @GET("showapi_joke/joke_text")
-    Call<JokeEntity> callJoke(@Header("apikey") String apikey, @Query("page") int page);
+
+    @Headers("apikey:83ec99fff780989a5376a1bc595ed5ff")
+    @GET("/txapi/mvtp/meinv")
+    Observable<MeiZhi> getMeiZhiPic( @Query("num") int page);
+
+
+    @GET("data/福利/{num}/{page}")
+    Observable<GirlsEntity> getPictures(@Path("num") int num, @Path("page") int page);
+
+
+    //    社会新闻
+    @GET("social/")
+    Observable<News> getSocialews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
+
+    //    国内新闻：
+    @GET("guonei/")
+    Observable<News> getGuoNeiNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
+
+    //    国际新闻：
+    @GET("world/")
+    Observable<News> getWorldNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
+
+    //    娱乐花边：
+    @GET("huabian/")
+    Observable<News> getHuaBianNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
+
+
+    //    体育新闻：
+    @GET("tiyu/")
+    Observable<News> getTiYuNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
+
+
+    //    科技新闻：
+    @GET("keji/")
+    Observable<News> getNewsDatas(@Query("key") String key,@Query("num") String num, @Query("page") int page);
+
+    //    NBA新闻：
+    @GET("nba/")
+    Observable<News> getNBANews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
 
 
 

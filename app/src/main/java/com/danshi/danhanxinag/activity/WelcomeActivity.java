@@ -54,6 +54,7 @@ public class WelcomeActivity extends BaseActivity {
             public void onAnimationEnd(Animation animation) {
                 Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
 
             @Override

@@ -8,14 +8,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.danshi.danhanxinag.danshiapp.R;
-import com.danshi.danhanxinag.model.Girls;
+import com.danshi.danhanxinag.model.GirlsEntity;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class PictureRecyclerAdapter extends RecyclerArrayAdapter<Girls.ResultsBean> {
+public class PictureRecyclerAdapter extends RecyclerArrayAdapter<GirlsEntity.ResultsBean> {
 
     public PictureRecyclerAdapter(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class PictureRecyclerAdapter extends RecyclerArrayAdapter<Girls.ResultsBe
         return new PictureViewHolder(parent);
     }
 
-    class PictureViewHolder extends BaseViewHolder<Girls.ResultsBean> {
+    class PictureViewHolder extends BaseViewHolder<GirlsEntity.ResultsBean> {
         private ImageView pictureImage;
         private TextView pictureText;
         private CardView cardView;
@@ -42,7 +42,7 @@ public class PictureRecyclerAdapter extends RecyclerArrayAdapter<Girls.ResultsBe
         }
 
         @Override
-        public void setData(Girls.ResultsBean data) {
+        public void setData(GirlsEntity.ResultsBean data) {
             super.setData(data);
             Glide.with(getContext())
                     .load(data.getUrl())

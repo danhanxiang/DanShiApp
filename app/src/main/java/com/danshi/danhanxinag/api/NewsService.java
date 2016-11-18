@@ -9,9 +9,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class HttpService {
+public class NewsService {
 
-    private static final String BASETESTURL = "http://apis.baidu.com/";
+    public static final String BASE_URL = "http://api.tianapi.com/";
+    public static final String APIKEY = "bc880d0a8dd61c0c8af01647c1c97684";
+
+
+    private static final String BASETESTURL  = "http://api.tianapi.com/";
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
             (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
 
@@ -22,7 +26,7 @@ public class HttpService {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    private HttpService() {
+    private NewsService() {
         //construct
 
     }

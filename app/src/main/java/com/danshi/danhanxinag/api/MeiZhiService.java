@@ -9,9 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class HttpService {
+public class MeiZhiService {
 
-    private static final String BASETESTURL = "http://apis.baidu.com/";
+    private static final String BASETESTURL = "http://gank.io/api/";
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
             (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
 
@@ -22,10 +22,11 @@ public class HttpService {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    private HttpService() {
+    private MeiZhiService() {
         //construct
 
     }
+
 
     public static <T> T createApi(Class<T> clazz) {
 

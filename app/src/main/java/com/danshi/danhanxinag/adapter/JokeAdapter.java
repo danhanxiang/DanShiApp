@@ -24,6 +24,9 @@ public class JokeAdapter extends RecyclerArrayAdapter<ContentlistEntity> {
         return new EasyViewHolder(parent);
     }
 
+
+
+
     class EasyViewHolder extends BaseViewHolder<ContentlistEntity> {
         TextView title;
         TextView time;
