@@ -2,7 +2,6 @@ package com.danshi.danhanxinag.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -14,6 +13,7 @@ import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.model.ContentlistEntity;
 import com.danshi.danhanxinag.presenter.JokePresenter;
+import com.danshi.danhanxinag.utils.SnackbarUtil;
 import com.danshi.danhanxinag.view.JokeView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -42,7 +42,7 @@ public class StoryFragment extends BaseFragment implements JokeView, SwipeRefres
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         if (view == null) {
-            view = inflater.inflate(R.layout.news_fragment_layout, container, false);
+            view = inflater.inflate(R.layout.story_fragment_layout, container, false);
             ButterKnife.bind(this, view);
             initView();
         }
@@ -117,6 +117,6 @@ public class StoryFragment extends BaseFragment implements JokeView, SwipeRefres
 
     @Override
     public void onItemClick(int position) {
-        Snackbar.make(getView(), "position=="+position,Snackbar.LENGTH_SHORT).show();
+        SnackbarUtil.showShort(getView(),"==="+position);
     }
 }

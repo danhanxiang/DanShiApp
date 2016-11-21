@@ -14,8 +14,9 @@ import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.fragment.MeizhiFragment;
 import com.danshi.danhanxinag.fragment.MeizhiFragment2;
-import com.danshi.danhanxinag.fragment.NewsFragment;
+import com.danshi.danhanxinag.fragment.NewsMainFragment;
 import com.danshi.danhanxinag.fragment.StoryFragment;
+import com.danshi.danhanxinag.fragment.TechFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,10 +31,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     NavigationView navView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
-    private NewsFragment mNewsFragment;
+    private NewsMainFragment mNewsMainFragment;
     private MeizhiFragment mMeizhiFragment;
     private StoryFragment mStoryFragment;
     private MeizhiFragment2 mMeizhiFragment2;
+    private TechFragment mTechFragment;
 
 
     @Override
@@ -102,6 +104,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 startActivity(new Intent(this,AboutMeActivity.class));
                 break;
             case R.id.nav_share:
+                showTechFragment();
                 break;
             case R.id.nav_send:
                 showMeiZhiFragment();
@@ -110,6 +113,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showTechFragment() {
+        if (mTechFragment == null) {
+            mTechFragment = new TechFragment();
+        }
+        showContentFragment(mTechFragment, R.id.fragment_container);
+
     }
 
     private void showMeiZhiFragment() {
@@ -136,9 +147,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void showNewsFragment() {
-        if (mNewsFragment == null) {
-            mNewsFragment = new NewsFragment();
+        if (mNewsMainFragment == null) {
+            mNewsMainFragment = new NewsMainFragment();
         }
-        showContentFragment(mNewsFragment, R.id.fragment_container);
+        showContentFragment(mNewsMainFragment, R.id.fragment_container);
     }
 }

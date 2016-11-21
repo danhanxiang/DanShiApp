@@ -38,6 +38,7 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     }
 
+
     protected void showContentFragment(BaseFragment to, int container) {
         if (to != null) {
             FragmentTransaction t = getSupportFragmentManager().beginTransaction();

@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class NewsFragment extends BaseFragment implements NewsView, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
+public class NewsMainFragment extends BaseFragment implements NewsView, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
     @BindView(R.id.easy_recycler_view)
     EasyRecyclerView easyRecyclerView;
     private int page = 1;
@@ -39,10 +39,11 @@ public class NewsFragment extends BaseFragment implements NewsView, SwipeRefresh
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.news_fragment_layout, container, false);
+            view = inflater.inflate(R.layout.news_main_fragment_layout, container, false);
             ButterKnife.bind(this, view);
             initView();
         }
+        ButterKnife.bind(this, view);
         return view;
 
     }
@@ -63,15 +64,14 @@ public class NewsFragment extends BaseFragment implements NewsView, SwipeRefresh
                 page++;
                 mNewsPresenter.getNewsData(page);
             }
+
             @Override
             public void onMoreClick() {
 
             }
         });
 
-        mNewsPresenter.getNewsData(page);
     }
-
 
     @Override
     public void refresh(List<News.NewslistBean> data) {
@@ -103,7 +103,7 @@ public class NewsFragment extends BaseFragment implements NewsView, SwipeRefresh
     public void onRefresh() {
         easyRecyclerView.setRefreshing(true);
         adapter.clear();
-        page =1;
+        page = 1;
         mNewsPresenter.getNewsData(page);
     }
 
