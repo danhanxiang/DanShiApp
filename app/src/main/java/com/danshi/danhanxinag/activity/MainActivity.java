@@ -44,7 +44,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showMeizhiFragment();
+        showStoryFragment();
+        toolbar.setTitle("微信精选");
       /*设置toolbar上的触发NavigationView的按钮*/
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -92,19 +93,23 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_camera:
-                showMeizhiFragment();
+                showStoryFragment(); //微信精选
+                toolbar.setTitle("微信精选");
                 break;
             case R.id.nav_gallery:
-                showNewsFragment();
+                showNewsFragment(); // 新闻模块
+                toolbar.setTitle("新闻模块");
                 break;
             case R.id.nav_slideshow:
-                showStoryFragment();
+                showMeizhiFragment(); //妹纸图片
+                toolbar.setTitle("妹纸图片");
                 break;
             case R.id.nav_manage:
-                startActivity(new Intent(this,AboutMeActivity.class));
+                showTechFragment(); //技术模块
+                toolbar.setTitle("技术交流");
                 break;
             case R.id.nav_share:
-                showTechFragment();
+                startActivity(new Intent(this,AboutMeActivity.class));
                 break;
             case R.id.nav_send:
                 showMeiZhiFragment();

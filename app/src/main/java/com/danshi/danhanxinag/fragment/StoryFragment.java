@@ -1,5 +1,6 @@
 package com.danshi.danhanxinag.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.danshi.danhanxinag.adapter.JokeAdapter;
+import com.danshi.danhanxinag.activity.WeiXinDetailActivity;
+import com.danshi.danhanxinag.adapter.WeiXinAdapter;
 import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
-import com.danshi.danhanxinag.model.ContentlistEntity;
-import com.danshi.danhanxinag.presenter.JokePresenter;
-import com.danshi.danhanxinag.utils.SnackbarUtil;
-import com.danshi.danhanxinag.view.JokeView;
+import com.danshi.danhanxinag.model.WeiXinArticleEntity;
+import com.danshi.danhanxinag.presenter.WeiXinPresenter;
+import com.danshi.danhanxinag.view.WeiXinView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -26,15 +27,14 @@ import butterknife.ButterKnife;
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class StoryFragment extends BaseFragment implements JokeView, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
+public class StoryFragment extends BaseFragment implements WeiXinView, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
 
     @BindView(R.id.easy_recycler_view)
     EasyRecyclerView easyRecyclerView;
     private View view;
 
-    private JokePresenter jokePresenter;
-
-    private JokeAdapter jokeAdapter;
+    private WeiXinPresenter mWeiXinPresenter;
+    private WeiXinAdapter mWeiXinAdapter;
     private int page = 1;
 
     @Nullable
@@ -51,18 +51,21 @@ public class StoryFragment extends BaseFragment implements JokeView, SwipeRefres
     }
 
     private void initView() {
+        mWeiXinPresenter = new WeiXinPresenter();
+        mWeiXinPresenter.attachView(this);
+        mWeiXinPresenter.getWeiXinList(page);
 
         easyRecyclerView.setRefreshing(true);
         easyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        jokeAdapter = new JokeAdapter(getActivity());
-        easyRecyclerView.setAdapter(jokeAdapter);
+        mWeiXinAdapter = new WeiXinAdapter(getActivity());
+        easyRecyclerView.setAdapter(mWeiXinAdapter);
         easyRecyclerView.setRefreshListener(this);
-        jokeAdapter.setOnItemClickListener(this);
-        jokeAdapter.setMore(R.layout.progress_wheel, new RecyclerArrayAdapter.OnMoreListener() {
+        mWeiXinAdapter.setOnItemClickListener(this);
+        mWeiXinAdapter.setMore(R.layout.progress_wheel, new RecyclerArrayAdapter.OnMoreListener() {
             @Override
             public void onMoreShow() {
                 page++;
-                jokePresenter.loadList(page);
+                mWeiXinPresenter.getWeiXinList(page);
             }
 
             @Override
@@ -71,27 +74,21 @@ public class StoryFragment extends BaseFragment implements JokeView, SwipeRefres
             }
         });
 
-        jokePresenter = new JokePresenter();
-        jokePresenter.attachView(this);
-
-        jokePresenter.loadList(page);
-
-
     }
 
+
     @Override
-    public void refresh(List<ContentlistEntity> data) {
+    public void refresh(List<WeiXinArticleEntity.ShowapiResBodyBean.PagebeanBean.ContentlistBean> data) {
         easyRecyclerView.setRefreshing(false);
-        jokeAdapter.addAll(data);
+        mWeiXinAdapter.addAll(data);
     }
 
     @Override
-    public void loadMore(List<ContentlistEntity> data) {
-        jokeAdapter.addAll(data);
+    public void loadMore(List<WeiXinArticleEntity.ShowapiResBodyBean.PagebeanBean.ContentlistBean> data) {
+        mWeiXinAdapter.addAll(data);
     }
 
     @Override
-
     public void showLoading(String msg) {
 
     }
@@ -110,13 +107,19 @@ public class StoryFragment extends BaseFragment implements JokeView, SwipeRefres
     @Override
     public void onRefresh() {
         easyRecyclerView.setRefreshing(true);
-        jokeAdapter.clear();
+        mWeiXinAdapter.clear();
         page = 1;
-        jokePresenter.loadList(page);
+        mWeiXinPresenter.getWeiXinList(page);
     }
 
     @Override
     public void onItemClick(int position) {
-        SnackbarUtil.showShort(getView(),"==="+position);
+        Intent intent = new Intent(getActivity(), WeiXinDetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ContentUrl", mWeiXinAdapter.getAllData().get(position).url);
+        bundle.putString("PicUrl", mWeiXinAdapter.getAllData().get(position).contentImg);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
+
 }

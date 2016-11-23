@@ -7,9 +7,10 @@
     <string name="action_settings">Settings</string>
     <string name="news_detail">新闻详情</string>
     <string name="about_me">新闻详情</string>
-    <string name="about_xiangzi">关于我  翔子</string>
-    <string name="about_content">关于我关于我关于我关于我关于我关于我关于我关于我关于我关
-        于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关
-        于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我
-        关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我</string>
+    <string name="weixin">微信精选</string>
+    <string name="android_page">Android 文章</string>
+    <string name="ios_page">IOS 文章</string>
+    <string name="web_page">WEB 文章</string>
+    <string name="about_xiangzi">关于我 </string>
+    <string name="about_content">这个项目是自己利用空余的时间完成的，各方面还是比较精细，只能算是</string>
 </resources>

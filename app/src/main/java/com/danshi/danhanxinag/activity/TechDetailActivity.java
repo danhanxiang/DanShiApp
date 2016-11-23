@@ -5,9 +5,11 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
 
@@ -15,27 +17,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by 20939 on 2016/11/17.
+ * Created by 20939 on 2016/11/23.
  */
-public class AboutMeActivity extends BaseActivity {
-
-    @BindView(R.id.iv_about_me)
-    ImageView ivAboutMe;
-
+public class TechDetailActivity extends BaseActivity {
+    @BindView(R.id.detail_image_view)
+    ImageView detailImageView;
+    @BindView(R.id.detail_web_view)
+    WebView detailWebView;
     @BindView(R.id.detail_tool_bar)
     Toolbar detailToolBar;
     @BindView(R.id.collapsing_toolbar_layout)
     CollapsingToolbarLayout toolbarLayout;
-    @BindView(R.id.detail_web_view)
-    TextView detailWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_about_me);
+        setContentView(R.layout.activity_news_detail);
         ButterKnife.bind(this);
-        toolbarLayout.setTitle(getResources().getString(R.string.about_xiangzi));
+        Bundle bundle = getIntent().getExtras();
+        toolbarLayout.setTitle(bundle.getString("title"));
         setSupportActionBar(detailToolBar);
         /* 显示返回箭头 */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,7 +47,12 @@ public class AboutMeActivity extends BaseActivity {
                 onBackPressed();
             }
         });
+        /* 获取Bundle中的数据 */
 
+        Glide.with(this).load("").error(R.mipmap.bg_drawer).into(detailImageView);
+        /* 设置webView在应用内显示内容 */
+        detailWebView.getSettings().setJavaScriptEnabled(true);
+        detailWebView.setWebViewClient(new WebViewClient());
+        detailWebView.loadUrl(bundle.getString("url"));
     }
-
 }

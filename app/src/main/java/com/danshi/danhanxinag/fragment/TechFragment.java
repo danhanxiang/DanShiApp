@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class TechFragment extends BaseFragment implements NewsView {
     public static final String APIKEY = "bc880d0a8dd61c0c8af01647c1c97684";
     private View view;
 
-    private String TITLE [] = {"Android","IOS","WEB","娱乐","体育","科技"};
+    private String TITLE [] = {"Android","IOS","WEB"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class TechFragment extends BaseFragment implements NewsView {
 
     private void initView() {
         mViewPager.setAdapter(new TechAdapter(getChildFragmentManager(),TITLE));
-        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
         for (int i = 0;i<TITLE.length;i++){
             mTabLayout.addTab(mTabLayout.newTab().setText(TITLE[i]));
         }

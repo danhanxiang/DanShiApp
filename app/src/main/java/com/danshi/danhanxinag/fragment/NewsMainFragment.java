@@ -51,6 +51,7 @@ public class NewsMainFragment extends BaseFragment implements NewsView, SwipeRef
     private void initView() {
         mNewsPresenter = new NewsPresenter();
         mNewsPresenter.attachView(this);
+        mNewsPresenter.getNewsData(page);
         easyRecyclerView.setRefreshing(true);
         easyRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new NewsAdapter(getActivity());

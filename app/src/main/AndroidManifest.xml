@@ -27,6 +27,8 @@
         <activity android:name="com.danshi.danhanxinag.activity.MeiZhiDetailActivity"/>
         <activity android:name="com.danshi.danhanxinag.activity.NewsDetailActivity"/>
         <activity android:name="com.danshi.danhanxinag.activity.AboutMeActivity"/>
+        <activity android:name="com.danshi.danhanxinag.activity.TechDetailActivity"/>
+        <activity android:name="com.danshi.danhanxinag.activity.WeiXinDetailActivity"/>
 
     </application>
 

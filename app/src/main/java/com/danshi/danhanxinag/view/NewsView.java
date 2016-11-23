@@ -13,5 +13,4 @@ public interface NewsView extends MvpView {
 
     void loadMore(List<News.NewslistBean> data);
 
-
 }
