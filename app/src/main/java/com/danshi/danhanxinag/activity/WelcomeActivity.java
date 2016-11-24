@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -27,6 +28,7 @@ public class WelcomeActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.TYPE_STATUS_BAR,WindowManager.LayoutParams.TYPE_STATUS_BAR);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
@@ -38,10 +40,11 @@ public class WelcomeActivity extends BaseActivity {
         scaleAnimation.setDuration(2500);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.7f,1.0f);
         alphaAnimation.setDuration(2500);
+        scaleAnimation.setFillAfter(true);
         AnimationSet animationSet = new AnimationSet(false);
         animationSet.addAnimation(scaleAnimation);
         animationSet.addAnimation(alphaAnimation);
-        scaleAnimation.setFillAfter(true);
+
         ivWelcome.startAnimation(animationSet);
 
         animationSet.setAnimationListener(new Animation.AnimationListener() {

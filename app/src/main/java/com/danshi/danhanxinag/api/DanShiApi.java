@@ -43,36 +43,9 @@ public interface DanShiApi {
     @GET("random/data/福利/{num}")
     Observable<GirlsEntity> getRandomGirl(@Path("num") int num);
 
-    //    社会新闻
-    @GET("social/")
-    Observable<News> getSocialews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
-    //    国内新闻：
-    @GET("guonei/")
-    Observable<News> getGuoNeiNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
-    //    国际新闻：
-    @GET("world/")
-    Observable<News> getWorldNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
-    //    娱乐花边：
-    @GET("huabian/")
-    Observable<News> getHuaBianNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
-
-    //    体育新闻：
-    @GET("tiyu/")
-    Observable<News> getTiYuNews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
 
     //    科技新闻：
     @GET("keji/")
     Observable<News> getNewsDatas(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
-    //    NBA新闻：
-    @GET("nba/")
-    Observable<News> getNBANews(@Query("key") String key,@Query("num") String num, @Query("page") int page);
-
-
 
 }
