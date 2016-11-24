@@ -36,15 +36,15 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     private void initView() {
+        ivWelcome.setImageResource(R.drawable.welcome);
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.05f, 1.0f, 1.05f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.8f,1.0f);
         scaleAnimation.setDuration(2500);
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0.7f,1.0f);
         alphaAnimation.setDuration(2500);
-        scaleAnimation.setFillAfter(true);
         AnimationSet animationSet = new AnimationSet(false);
         animationSet.addAnimation(scaleAnimation);
         animationSet.addAnimation(alphaAnimation);
-
+        animationSet.setFillAfter(true);
         ivWelcome.startAnimation(animationSet);
 
         animationSet.setAnimationListener(new Animation.AnimationListener() {
@@ -65,6 +65,7 @@ public class WelcomeActivity extends BaseActivity {
 
             }
         });
+
     }
 
     @Override
