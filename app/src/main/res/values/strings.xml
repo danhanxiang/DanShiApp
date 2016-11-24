@@ -13,6 +13,8 @@
     <string name="ios_page">IOS 文章</string>
     <string name="web_page">WEB 文章</string>
     <string name="about_xiangzi">关于我 </string>
+    <string name="xiazai">下载图片 </string>
+    <string name="bizhi">设置壁纸 </string>
     <string name="about_content">\t这个项目是自己利用空余的时间完成的，各方面不是比较精细
         ，只能算是大概的了一个mvp的项目吧\n \n\t项目的接口都是百度上面的免费还有从别人项目上面找的接口，
         类似于妹纸图片，当然还是源于@代码家\n \n\t后续可能会继续优化这个项目，多加一些现在比较流行的技术在里面，
