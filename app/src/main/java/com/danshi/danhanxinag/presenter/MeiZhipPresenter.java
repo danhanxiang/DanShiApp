@@ -44,7 +44,7 @@ public class MeiZhipPresenter extends BasePresenter<MeiZhiView> {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        getMvpView().showError("网络错误！");
                     }
 
                     @Override

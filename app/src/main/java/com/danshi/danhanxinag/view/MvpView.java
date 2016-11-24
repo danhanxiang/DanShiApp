@@ -12,6 +12,9 @@ public interface MvpView {
 
     void hideLoading();
 
+    void showError(String msg);
+
     void showError(String msg, View.OnClickListener onClickListener);
+
 
 }

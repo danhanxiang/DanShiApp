@@ -15,6 +15,7 @@ import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.model.WeiXinArticleEntity;
 import com.danshi.danhanxinag.presenter.WeiXinPresenter;
+import com.danshi.danhanxinag.utils.SnackbarUtil;
 import com.danshi.danhanxinag.view.WeiXinView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -27,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * Created by 20939 on 2016/11/16.
  */
-public class StoryFragment extends BaseFragment implements WeiXinView, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
+public class WeiXinFragment extends BaseFragment implements WeiXinView, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
 
     @BindView(R.id.easy_recycler_view)
     EasyRecyclerView easyRecyclerView;
@@ -103,7 +104,16 @@ public class StoryFragment extends BaseFragment implements WeiXinView, SwipeRefr
 
     }
 
+    @Override
+    public void showError(String msg) {
+        SnackbarUtil.showShort(getView(),msg);
+    }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mWeiXinPresenter.detachView();
+    }
     @Override
     public void onRefresh() {
         easyRecyclerView.setRefreshing(true);

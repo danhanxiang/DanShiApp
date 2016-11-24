@@ -16,6 +16,7 @@ import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.model.GirlsEntity;
 import com.danshi.danhanxinag.presenter.MeiZhipPresenter;
+import com.danshi.danhanxinag.utils.SnackbarUtil;
 import com.danshi.danhanxinag.view.MeiZhiView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -108,11 +109,22 @@ public class MeizhiFragment extends BaseFragment implements MeiZhiView, SwipeRef
     }
 
     @Override
+    public void showError(String msg) {
+        SnackbarUtil.showShort(getView(),msg);
+    }
+
+    @Override
     public void onRefresh() {
         easyRecyclerView.setRefreshing(true);
         adapter.clear();
         page = 1;
         mMeiZhipPresenter.getMeiZhiPic(page);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mMeiZhipPresenter.detachView();
     }
 
     @Override

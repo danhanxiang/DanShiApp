@@ -1,7 +1,5 @@
 package com.danshi.danhanxinag.presenter;
 
-import android.util.Log;
-
 import com.danshi.danhanxinag.api.DanShiApi;
 import com.danshi.danhanxinag.api.HttpService;
 import com.danshi.danhanxinag.model.WeiXinArticleEntity;
@@ -48,7 +46,7 @@ public class WeiXinPresenter extends BasePresenter<WeiXinView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("","=ERROR=="+ e.toString());
+                        getMvpView().showError("网络错误！");
                     }
 
                     @Override

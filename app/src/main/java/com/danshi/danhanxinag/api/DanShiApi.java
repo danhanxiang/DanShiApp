@@ -1,7 +1,7 @@
 package com.danshi.danhanxinag.api;
 
 import com.danshi.danhanxinag.model.GirlsEntity;
-import com.danshi.danhanxinag.model.JokeEntity;
+
 import com.danshi.danhanxinag.model.MeiZhi;
 import com.danshi.danhanxinag.model.News;
 import com.danshi.danhanxinag.model.WeiXinArticleEntity;
@@ -15,9 +15,9 @@ import rx.Observable;
  * Created by 20939 on 2016/11/16.
  */
 public interface DanShiApi {
-    @Headers("apikey:83ec99fff780989a5376a1bc595ed5ff")
-    @GET("showapi_open_bus/showapi_joke/joke_text")
-    Observable<JokeEntity> getJoke(@Query("page") int page);
+//    @Headers("apikey:83ec99fff780989a5376a1bc595ed5ff")
+//    @GET("showapi_open_bus/showapi_joke/joke_text")
+//    Observable<JokeEntity> getJoke(@Query("page") int page);
 
     // 微信精选
     @Headers("apikey:83ec99fff780989a5376a1bc595ed5ff")

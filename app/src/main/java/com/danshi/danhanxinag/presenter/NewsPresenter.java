@@ -1,7 +1,5 @@
 package com.danshi.danhanxinag.presenter;
 
-import android.util.Log;
-
 import com.danshi.danhanxinag.api.DanShiApi;
 import com.danshi.danhanxinag.api.NewsService;
 import com.danshi.danhanxinag.model.News;
@@ -50,8 +48,7 @@ public class NewsPresenter extends BasePresenter<NewsView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        getMvpView().showError(e.toString(),null);
-                        Log.d("====erroe","======"+e.toString());
+                        getMvpView().showError("网络错误！");
                     }
 
                     @Override

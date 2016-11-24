@@ -8,9 +8,14 @@
     <string name="news_detail">新闻详情</string>
     <string name="about_me">新闻详情</string>
     <string name="weixin">微信精选</string>
+    <string name="email_address">danhanxiang@outlook.com</string>
     <string name="android_page">Android 文章</string>
     <string name="ios_page">IOS 文章</string>
     <string name="web_page">WEB 文章</string>
     <string name="about_xiangzi">关于我 </string>
-    <string name="about_content">这个项目是自己利用空余的时间完成的，各方面还是比较精细，只能算是</string>
+    <string name="about_content">\t这个项目是自己利用空余的时间完成的，各方面不是比较精细
+        ，只能算是大概的了一个mvp的项目吧\n \n\t项目的接口都是百度上面的免费还有从别人项目上面找的接口，
+        类似于妹纸图片，当然还是源于@代码家\n \n\t后续可能会继续优化这个项目，多加一些现在比较流行的技术在里面，
+        说实话我也是边看边写的，之前一直在看Rxjava，每次看都有不同的理解，当将Rxjava用到这个项目里面的时候感觉代码还是要多写，
+        写了之后出了错才知道哪里还没有明白。 \n\t 希望大家能支持一下给个star，也祝愿大家代码打的越来越溜!!</string>
 </resources>

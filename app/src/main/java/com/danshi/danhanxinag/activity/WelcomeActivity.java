@@ -66,4 +66,9 @@ public class WelcomeActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void showError(String msg) {
+
+    }
 }

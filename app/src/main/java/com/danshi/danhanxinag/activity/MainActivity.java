@@ -15,7 +15,7 @@ import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.fragment.MeizhiFragment;
 import com.danshi.danhanxinag.fragment.MeizhiFragment2;
 import com.danshi.danhanxinag.fragment.NewsMainFragment;
-import com.danshi.danhanxinag.fragment.StoryFragment;
+import com.danshi.danhanxinag.fragment.WeiXinFragment;
 import com.danshi.danhanxinag.fragment.TechFragment;
 
 import butterknife.BindView;
@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     DrawerLayout drawer;
     private NewsMainFragment mNewsMainFragment;
     private MeizhiFragment mMeizhiFragment;
-    private StoryFragment mStoryFragment;
+    private WeiXinFragment mWeiXinFragment;
     private MeizhiFragment2 mMeizhiFragment2;
     private TechFragment mTechFragment;
 
@@ -73,9 +73,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -112,7 +110,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 startActivity(new Intent(this,AboutMeActivity.class));
                 break;
             case R.id.nav_send:
-                showMeiZhiFragment();
+//                showMeiZhiFragment();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_EMAIL, getString(R.string.email_address));
+                intent = Intent.createChooser(intent, "请选择发送方式");
+                startActivity(intent);
                 break;
         }
 
@@ -138,10 +141,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void showStoryFragment() {
-        if (mStoryFragment == null) {
-            mStoryFragment = new StoryFragment();
+        if (mWeiXinFragment == null) {
+            mWeiXinFragment = new WeiXinFragment();
         }
-        showContentFragment(mStoryFragment, R.id.fragment_container);
+        showContentFragment(mWeiXinFragment, R.id.fragment_container);
     }
 
     private void showMeizhiFragment() {

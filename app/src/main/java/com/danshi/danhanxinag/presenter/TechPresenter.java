@@ -44,7 +44,7 @@ public class TechPresenter extends BasePresenter<TechView> {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        getMvpView().showError("网络错误！");
                     }
 
                     @Override
@@ -59,7 +59,10 @@ public class TechPresenter extends BasePresenter<TechView> {
     }
 
 
-
+    /**
+     * 获取随机网络妹纸图片
+     * @param num
+     */
     public void getRandomPic(int num){
         MeiZhiService.createApi(DanShiApi.class)
                 .getRandomGirl(num)
@@ -78,7 +81,7 @@ public class TechPresenter extends BasePresenter<TechView> {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        getMvpView().showError("网络错误！");
                     }
 
                     @Override
@@ -88,6 +91,12 @@ public class TechPresenter extends BasePresenter<TechView> {
                 });
 
     }
+
+    /**
+     *  技术相关网络请求
+     * @param tech
+     * @param page
+     */
 
     public void getTechPage(String tech, final int page){
         MeiZhiService.createApi(DanShiApi.class)
@@ -107,7 +116,7 @@ public class TechPresenter extends BasePresenter<TechView> {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        getMvpView().showError("网络错误！");
                     }
 
                     @Override

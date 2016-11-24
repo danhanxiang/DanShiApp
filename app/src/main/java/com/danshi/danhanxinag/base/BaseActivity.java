@@ -38,6 +38,11 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     }
 
+    @Override
+    public void showError(String msg) {
+
+    }
+
 
     protected void showContentFragment(BaseFragment to, int container) {
         if (to != null) {

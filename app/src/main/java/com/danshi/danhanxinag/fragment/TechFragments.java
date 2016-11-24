@@ -16,6 +16,7 @@ import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.model.GirlsEntity;
 import com.danshi.danhanxinag.presenter.TechPresenter;
+import com.danshi.danhanxinag.utils.SnackbarUtil;
 import com.danshi.danhanxinag.view.TechView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -121,6 +122,15 @@ public class TechFragments extends BaseFragment implements TechView, SwipeRefres
     }
 
     @Override
+    public void showError(String msg) {
+        SnackbarUtil.showShort(getView(),msg);
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mTechPresenter.detachView();
+    }
+    @Override
     public void onRefresh() {
         techRecyclerView.setRefreshing(true);
         mTechAdapter.clear();
@@ -130,7 +140,6 @@ public class TechFragments extends BaseFragment implements TechView, SwipeRefres
 
     @Override
     public void onItemClick(int position) {
-
         Intent intent = new Intent(getActivity(), TechDetailActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("url", mTechAdapter.getAllData().get(position).getUrl());

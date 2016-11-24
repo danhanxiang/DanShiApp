@@ -14,6 +14,7 @@ import com.danshi.danhanxinag.base.BaseFragment;
 import com.danshi.danhanxinag.danshiapp.R;
 import com.danshi.danhanxinag.model.News;
 import com.danshi.danhanxinag.presenter.NewsPresenter;
+import com.danshi.danhanxinag.utils.SnackbarUtil;
 import com.danshi.danhanxinag.view.NewsView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -100,6 +101,15 @@ public class NewsMainFragment extends BaseFragment implements NewsView, SwipeRef
 
     }
 
+    @Override
+    public void showError(String msg) {
+        SnackbarUtil.showShort(getView(),msg);
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mNewsPresenter.detachView();
+    }
     @Override
     public void onRefresh() {
         easyRecyclerView.setRefreshing(true);
