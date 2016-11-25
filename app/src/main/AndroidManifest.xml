@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.danshi.danhanxinag.danshiapp">
+          package="com.danshi.danhanxiang.danshiapp">
 
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -9,14 +9,14 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
 
     <application
-        android:name="com.danshi.danhanxinag.app.App"
+        android:name="com.danshi.danhanxiang.app.App"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.danshi.danhanxinag.activity.WelcomeActivity"
+            android:name="com.danshi.danhanxiang.activity.WelcomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,13 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.danshi.danhanxinag.activity.MainActivity"
+        <activity android:name="com.danshi.danhanxiang.activity.MainActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.danshi.danhanxinag.activity.MeiZhiDetailActivity"/>
-        <activity android:name="com.danshi.danhanxinag.activity.NewsDetailActivity"/>
-        <activity android:name="com.danshi.danhanxinag.activity.AboutMeActivity"/>
-        <activity android:name="com.danshi.danhanxinag.activity.TechDetailActivity"/>
-        <activity android:name="com.danshi.danhanxinag.activity.WeiXinDetailActivity"/>
+        <activity android:name="com.danshi.danhanxiang.activity.MeiZhiDetailActivity"/>
+        <activity android:name="com.danshi.danhanxiang.activity.NewsDetailActivity"/>
+        <activity android:name="com.danshi.danhanxiang.activity.AboutMeActivity"/>
+        <activity android:name="com.danshi.danhanxiang.activity.TechDetailActivity"/>
+        <activity android:name="com.danshi.danhanxiang.activity.WeiXinDetailActivity"/>
 
     </application>
 
