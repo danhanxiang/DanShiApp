@@ -7,7 +7,7 @@
     <include
         layout="@layout/tool_bar" />
 
-    <ImageView
+    <uk.co.senab.photoview.PhotoView
         android:id="@+id/bitmap_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

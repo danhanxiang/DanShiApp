@@ -6,18 +6,18 @@ import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
+import android.widget.Toast;
 
 import com.danshi.danhanxinag.app.App;
+import com.danshi.danhanxinag.app.Constants;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 /**
- * Created by codeest on 2016/8/4.
+ * Created by 20939 on 2016/11/23.
  */
 public class SystemUtil {
 
@@ -50,13 +50,12 @@ public class SystemUtil {
     /**
      * 保存图片到本地
      * @param context
-     * @param url
      * @param bitmap
      */
-    public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + "DanShiApp";
+
     public static Uri saveBitmapToFile(Context context, String id, Bitmap bitmap){
         String fileName = id + ".jpg";
-        File fileDir = new File(PATH_SDCARD);
+        File fileDir = new File(Constants.APP_PATH);
         if (!fileDir.exists()){
             fileDir.mkdir();
         }
@@ -67,15 +66,15 @@ public class SystemUtil {
             FileOutputStream fos = new FileOutputStream(imageFile);
             boolean isCompress = bitmap.compress(Bitmap.CompressFormat.PNG, 90, fos);
             if (isCompress) {
-                ToastUtil.createShort("保存妹纸成功n(*≧▽≦*)n");
+                Toast.makeText(context,"保存妹纸成功n(*≧▽≦*)n",Toast.LENGTH_SHORT).show();
             } else {
-                ToastUtil.createShort("保存妹纸失败ヽ(≧Д≦)ノ");
+                Toast.makeText(context,"保存妹纸失败ヽ(≧Д≦)ノ",Toast.LENGTH_SHORT).show();
             }
             fos.flush();
             fos.close();
         } catch (IOException e) {
             e.printStackTrace();
-            ToastUtil.createShort("保存妹纸失败ヽ(≧Д≦)ノ");
+            Toast.makeText(context,"保存妹纸失败ヽ(≧Д≦)ノ",Toast.LENGTH_SHORT).show();
         }
         try {
             MediaStore.Images.Media.insertImage(context.getContentResolver(), imageFile.getAbsolutePath(), fileName, null);
@@ -85,6 +84,7 @@ public class SystemUtil {
         context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,uri));
         return uri;
     }
+
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)

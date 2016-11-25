@@ -3,28 +3,22 @@ package com.danshi.danhanxinag.activity;
 import android.app.ProgressDialog;
 import android.app.WallpaperManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
+import com.danshi.danhanxinag.utils.SystemUtil;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import butterknife.BindView;
@@ -33,19 +27,20 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+import uk.co.senab.photoview.PhotoView;
 
 /**
  * Created by 20939 on 2016/11/17.
  */
-public class MeiZhiDetailActivity extends BaseActivity {
+public class MeiZhiDetailActivity extends BaseActivity{
     @BindView(R.id.bitmap_image_view)
-    ImageView bitmapImageView;
+    PhotoView bitmapImageView;
     @BindView(R.id.my_toolbar)
     Toolbar bitmapToolbar;
 
     private String bitmapUrl;
     private String bitmapId;
-    private ProgressDialog progressdialog;
+    private ProgressDialog mProgressDialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,18 +60,24 @@ public class MeiZhiDetailActivity extends BaseActivity {
         bitmapId = getIntent().getExtras().getString("PicId");
         bitmapUrl = getIntent().getExtras().getString("PicUrl");
         Glide.with(this).load(bitmapUrl).error(R.drawable.logo).into(bitmapImageView);
-
-        progressdialog = new ProgressDialog(this);
-
+        mProgressDialog = new ProgressDialog(this);
     }
 
+    public void showDialog(){
+        if (mProgressDialog != null){
+            mProgressDialog.show();
+        }
+    }
+    public void hideDialog(){
+        if (mProgressDialog != null){
+            mProgressDialog.hide();
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_bitmap, menu);
-//        getMenuInflater().inflate(R.menu.meizhi, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -84,11 +85,9 @@ public class MeiZhiDetailActivity extends BaseActivity {
         switch (id) {
             case R.id.action_save:
                 savePicture(this, bitmapId);
-                Log.d("","========action_save==");
                 break;
             case R.id.action_wall:
                 makeWallpaper();
-                Log.d("","========action_wall==");
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -98,16 +97,13 @@ public class MeiZhiDetailActivity extends BaseActivity {
      * 把图片设置成手机壁纸
      */
     private void makeWallpaper() {
-        if (progressdialog != null){
-            progressdialog.show();
-        }
+        showDialog();
         Observable.create(new Observable.OnSubscribe<Bitmap>() {
             @Override
             public void call(Subscriber<? super Bitmap> subscriber) {
-
                 Bitmap bitmap = null;
                 try {
-                     bitmap = Picasso.with(MeiZhiDetailActivity.this).load(bitmapUrl).get();
+                    bitmap = Picasso.with(MeiZhiDetailActivity.this).load(bitmapUrl).get();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -121,15 +117,13 @@ public class MeiZhiDetailActivity extends BaseActivity {
                 .subscribe(new Subscriber<Bitmap>() {
                     @Override
                     public void onCompleted() {
-                        progressdialog.hide();
+                        hideDialog();
                         Toast.makeText(MeiZhiDetailActivity.this, "壁纸设置成功", Toast.LENGTH_SHORT).show();
                     }
-
                     @Override
                     public void onError(Throwable e) {
 
                     }
-
                     @Override
                     public void onNext(Bitmap bitmap) {
 
@@ -138,7 +132,6 @@ public class MeiZhiDetailActivity extends BaseActivity {
                             int desiredMinimumWidth = getWindowManager().getDefaultDisplay().getWidth();
                             int desiredMinimumHeight = getWindowManager().getDefaultDisplay().getHeight();
                             instance.suggestDesiredDimensions(desiredMinimumWidth, desiredMinimumHeight);
-
                             instance.setBitmap(bitmap);
 
                         } catch (IOException e) {
@@ -149,16 +142,14 @@ public class MeiZhiDetailActivity extends BaseActivity {
                     }
                 });
 
-
     }
 
+
     private void savePicture(final Context context, final String id) {
+        showDialog();
         Observable.create(new Observable.OnSubscribe<Bitmap>() {
             @Override
             public void call(Subscriber<? super Bitmap> subscriber) {
-                if (progressdialog != null){
-                    progressdialog.show();
-                }
                 Bitmap bitmap = null;
                 try {
                     /* Picasso加载图片质量高于Glide */
@@ -177,7 +168,7 @@ public class MeiZhiDetailActivity extends BaseActivity {
                 .subscribe(new Subscriber<Bitmap>() {
                     @Override
                     public void onCompleted() {
-                        progressdialog.hide();
+                    hideDialog();
                     }
 
                     @Override
@@ -187,27 +178,29 @@ public class MeiZhiDetailActivity extends BaseActivity {
 
                     @Override
                     public void onNext(Bitmap bitmap) {
-                        File appDir = new File(Environment.getExternalStorageDirectory(), "DanShiAPP");
-                        String pictureName = id + ".jpg";
-                        File file = new File(appDir, pictureName);
-                        try {
-                            FileOutputStream outputStream = new FileOutputStream(file);
-                            /* 断言,true则继续执行,false则java.lang.AssertionError */
-                            assert (bitmap != null);
-                            /**
-                             * 压缩图片
-                             * @param quality 压缩率  100 表示不压缩
-                             */
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                            outputStream.flush();
-                            outputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        /* 通知图库更新 */
-                        Uri uri = Uri.fromFile(file);
-                        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
-                        Toast.makeText(context, "图片已保存至" + appDir.getAbsolutePath() + "文件夹", Toast.LENGTH_SHORT).show();
+//                        File appDir = new File(Environment.getExternalStorageDirectory(), "/DanShiAPP/");
+//                        String pictureName = id + ".jpg";
+//                        File file = new File(appDir, pictureName);
+//                        try {
+//                            FileOutputStream outputStream = new FileOutputStream(file);
+//                            /* 断言,true则继续执行,false则java.lang.AssertionError */
+//                            assert (bitmap != null);
+//                            /**
+//                             * 压缩图片
+//                             * @param quality 压缩率  100 表示不压缩
+//                             */
+//                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+//                            outputStream.flush();
+//                            outputStream.close();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                        /* 通知图库更新 */
+//                        Uri uri = Uri.fromFile(file);
+//                        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
+//                        Toast.makeText(context, "图片已保存", Toast.LENGTH_SHORT).show();
+                        SystemUtil.saveBitmapToFile(MeiZhiDetailActivity.this,id,bitmap);
+
                     }
                 });
 

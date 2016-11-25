@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_down"
+        android:id="@+id/down"
         android:orderInCategory="100"
         android:title="@string/xiazai"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/action_walls"
+        android:id="@+id/walls"
         android:orderInCategory="100"
         android:title="@string/bizhi"
         app:showAsAction="never"/>
