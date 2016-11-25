@@ -141,9 +141,7 @@ public class MeiZhiDetailActivity extends BaseActivity{
 
                     }
                 });
-
     }
-
 
     private void savePicture(final Context context, final String id) {
         showDialog();
@@ -178,6 +176,7 @@ public class MeiZhiDetailActivity extends BaseActivity{
 
                     @Override
                     public void onNext(Bitmap bitmap) {
+                        SystemUtil.saveBitmapToFile(MeiZhiDetailActivity.this,id,bitmap);
 //                        File appDir = new File(Environment.getExternalStorageDirectory(), "/DanShiAPP/");
 //                        String pictureName = id + ".jpg";
 //                        File file = new File(appDir, pictureName);
@@ -199,8 +198,6 @@ public class MeiZhiDetailActivity extends BaseActivity{
 //                        Uri uri = Uri.fromFile(file);
 //                        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
 //                        Toast.makeText(context, "图片已保存", Toast.LENGTH_SHORT).show();
-                        SystemUtil.saveBitmapToFile(MeiZhiDetailActivity.this,id,bitmap);
-
                     }
                 });
 
