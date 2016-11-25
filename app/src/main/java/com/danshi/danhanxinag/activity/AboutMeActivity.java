@@ -3,6 +3,7 @@ package com.danshi.danhanxinag.activity;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.danshi.danhanxinag.base.BaseActivity;
 import com.danshi.danhanxinag.danshiapp.R;
+import com.danshi.danhanxinag.utils.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

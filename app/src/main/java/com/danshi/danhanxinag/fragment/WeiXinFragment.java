@@ -106,7 +106,7 @@ public class WeiXinFragment extends BaseFragment implements WeiXinView, SwipeRef
 
     @Override
     public void showError(String msg) {
-        SnackbarUtil.showShort(getView(),msg);
+        SnackbarUtil.showShort(getView(), msg);
     }
 
     @Override
@@ -114,6 +114,7 @@ public class WeiXinFragment extends BaseFragment implements WeiXinView, SwipeRef
         super.onDestroyView();
         mWeiXinPresenter.detachView();
     }
+
     @Override
     public void onRefresh() {
         easyRecyclerView.setRefreshing(true);
@@ -130,6 +131,7 @@ public class WeiXinFragment extends BaseFragment implements WeiXinView, SwipeRef
         bundle.putString("PicUrl", mWeiXinAdapter.getAllData().get(position).contentImg);
         intent.putExtras(bundle);
         startActivity(intent);
+
     }
 
 }
