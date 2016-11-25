@@ -15,7 +15,7 @@ DanShiApp, A pure reading App based on Material Design + MVP + RxJava + Retrofit
 ![](https://github.com/danhanxiang/DanShiApp/blob/master/screenshots/3.png)
 ![](https://github.com/danhanxiang/DanShiApp/blob/master/screenshots/4.png)
 ![](https://github.com/danhanxiang/DanShiApp/blob/master/screenshots/5.png)
-![](https://github.com/danhanxiang/DanShiApp/blob/master/screenshots/GIF1.gif) &nbsp;&nbsp;&nbsp;
+![](https://github.com/danhanxiang/DanShiApp/blob/master/screenshots/GIF1.gif)&nbsp;&nbsp;&nbsp;
 
 ##Points
 
@@ -25,6 +25,7 @@ DanShiApp, A pure reading App based on Material Design + MVP + RxJava + Retrofit
 * 使用Material Design控件和动画
 * 使用MVP架构整个项目，对应于model、ui、presenter三个包
 * 使用Glide做图片的处理和加载
+* 使用photoView对进行图片点击放大 缩小操作
 * 使用easyRecyclerView实现下拉刷新、上拉加载、头部添加、点击事件
 * 所有踩到的坑都在项目里做了注释
 
@@ -35,9 +36,11 @@ DanShiApp, A pure reading App based on Material Design + MVP + RxJava + Retrofit
 * [Retrofit](https://github.com/square/retrofit)
 * [OkHttp](https://github.com/square/okhttp)
 * [Glide](https://github.com/bumptech/glide)
+* [photoview](https://github.com/chrisbanes/PhotoView)
 * [Gson](https://github.com/google/gson)
 * [ButterKnife](https://github.com/JakeWharton/butterknife)
 
 ##License
 
 Copyright (c) 2016 
+    
