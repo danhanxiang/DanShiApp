@@ -29,7 +29,7 @@ DanShiApp, A pure reading App based on Material Design + MVP + RxJava + Retrofit
 * 使用easyRecyclerView实现下拉刷新、上拉加载、头部添加、点击事件
 * 所有踩到的坑都在项目里做了注释
 
-
+##Open source
 
 * [RxJava](https://github.com/ReactiveX/RxJava)
 * [RxAndroid](https://github.com/ReactiveX/RxAndroid)
