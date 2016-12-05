@@ -22,7 +22,7 @@ public class ToastUtil {
         Toast mToast = new Toast(context);
         View view = LayoutInflater.from(context).inflate(R.layout.toast_layout, null, false);
         TextView textView = (TextView) view.findViewById(R.id.tv_toast);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(getScreenWidth(), 80);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(getScreenWidth(), DensityUtils.dp2px(context,80));
         textView.setLayoutParams(params);
         mToast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
         mToast.setDuration(Toast.LENGTH_SHORT);
