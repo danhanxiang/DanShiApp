@@ -13,4 +13,11 @@
     <color name="huise">#77787b</color>
     <color name="text_color">#383838</color>
     <color name="bg_color">#fafafa</color>
+
+    <color name="color_red">#EA4346</color>
+    <color name="color_black">#646363</color>
+    <color name="color_blue">#3789F9</color>
+
+
+
 </resources>

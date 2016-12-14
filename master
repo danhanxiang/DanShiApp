@@ -1,0 +1,163 @@
+[33mcommit 6581c814c9c25cfaa5371e8597bae84f16dba83e[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Mon Dec 5 13:29:55 2016 +0800
+
+    工具类添加
+
+[33mcommit 382214a30d031c61ad09e8245f74b425f1013323[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 25 17:19:14 2016 +0800
+
+    小修改
+
+[33mcommit 1610c20c053bf11554d27c964b9a7388c12747fa[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 25 16:50:50 2016 +0800
+
+    toastUtil 修改
+
+[33mcommit 5b686a0a1e172ca29d19da7b0b3ffc540ca9d3d7[m
+Merge: 1ae5478 9caeab3
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 25 11:45:18 2016 +0800
+
+    Merge branch 'master' of https://github.com/danhanxiang/DanShiApp
+
+[33mcommit 9caeab38ee6e4e7b443e7f66b7a745478f53ae91[m
+Author: Xiangzi <497587975@qq.com>
+Date:   Fri Nov 25 11:26:47 2016 +0800
+
+    Update README.md
+
+[33mcommit 1ae54781e84314f91b3d2b7709c098ec55cb0a07[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 25 11:16:37 2016 +0800
+
+    gif 提交
+
+[33mcommit d8ebda03513a2ad8b0e9e37300c7769f2cbb6b5d[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 25 10:50:01 2016 +0800
+
+    优化设置手机背景
+
+[33mcommit f26aaf97d434b405cb8bd6a1bb563572fea4edec[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 25 10:48:43 2016 +0800
+
+    添加photoview
+
+[33mcommit 9a913587583435b48fb6516d88b2e260e24f1cb0[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 18:03:52 2016 +0800
+
+    图片可以设置为壁纸
+
+[33mcommit f9402cbb4c3a3b29a88b82e747a2360a9a543521[m
+Merge: 45e8e51 6219d00
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 14:08:44 2016 +0800
+
+    Merge branch 'master' of https://github.com/danhanxiang/DanShiApp
+
+[33mcommit 45e8e5154efbb18e4ccd0a4610edbcb05666be77[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 14:06:36 2016 +0800
+
+    启动页面bug
+
+[33mcommit 6219d00421789fcd9fadd898dde03b0c4337880a[m
+Author: Xiangzi <497587975@qq.com>
+Date:   Thu Nov 24 10:52:10 2016 +0800
+
+    Update README.md
+
+[33mcommit 1a2f76b4f2c523da518ef958c1ab40c2491192a9[m
+Author: Xiangzi <497587975@qq.com>
+Date:   Thu Nov 24 10:43:03 2016 +0800
+
+    Create README.md
+
+[33mcommit fb38b097bb0cb4ea4018185949b44ffe54e207d4[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 10:36:08 2016 +0800
+
+    效果图
+
+[33mcommit 8995858d73d9fc2cbf70c4205eb42ed7224a7703[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 10:01:05 2016 +0800
+
+    try again delete
+
+[33mcommit e03fd69f5311432a14fc8c618a36964567a08921[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 09:37:13 2016 +0800
+
+    hhhh
+
+[33mcommit 4a494a138c4773ec8c058db98bbd1f32ba6c4e09[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 08:32:42 2016 +0800
+
+    小修改
+
+[33mcommit 927d9074b983300f3f55371108896f1a8bf62f8a[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 24 08:24:20 2016 +0800
+
+    去掉.idea
+
+[33mcommit 376aa17e4c846949659febb5f6f5012dcfd359c7[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Wed Nov 23 17:21:39 2016 +0800
+
+    微信精选，技术分享 相关页面
+
+[33mcommit 29b27e10fbc9e164a9a018729da3f14e2acf53a9[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Mon Nov 21 16:21:49 2016 +0800
+
+    添加技术tab
+
+[33mcommit 93c5c2b27f393e5f8320ea4dfbbdf2ac1ece7dd2[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Fri Nov 18 17:35:19 2016 +0800
+
+    mvp 架构基本搭建
+
+[33mcommit 396f2aba1c2e1f130b8d21ff1f14e66c4a7dc80a[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 17 18:00:15 2016 +0800
+
+    something need to push
+
+[33mcommit 5ad15ba46396be86d52c8081816172cbd2877080[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 17 16:00:18 2016 +0800
+
+    新闻详情，妹纸图片列表完成
+
+[33mcommit 678b8d1d194eaa8bae57edd81880ebb733ee1bad[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Thu Nov 17 11:21:01 2016 +0800
+
+    新闻界面初步展示
+
+[33mcommit fef5d43af29ad559d3afb0222684c24e3f9ebde7[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Wed Nov 16 17:52:28 2016 +0800
+
+    基本界面搭建
+
+[33mcommit 1b090032eb3b5455b6f89d9983147766b1c28adc[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Wed Nov 16 17:48:06 2016 +0800
+
+    基本布局逻辑搭建完成
+
+[33mcommit 6119a810b8df3a8a63b8de149294cb5fde55d9e8[m
+Author: danhanxiang <497587975@qq.com>
+Date:   Wed Nov 16 08:56:07 2016 +0800
+
+    first commit
