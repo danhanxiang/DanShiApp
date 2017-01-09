@@ -22,12 +22,11 @@ public class App extends Application {
         instance = this;
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
-                                    .name("danshi.realm")
-                                    .deleteRealmIfMigrationNeeded()
+                .name("danshi.realm")
+                .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);
 
     }
-
 
 }

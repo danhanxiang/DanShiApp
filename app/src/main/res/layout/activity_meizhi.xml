@@ -7,9 +7,6 @@
     <include
         layout="@layout/tool_bar" />
 
-    <com.danshi.danhanxinag.baidudemo.BaiduProgress
-        android:layout_width="match_parent"
-        android:layout_height="150dp"/>
 
     <uk.co.senab.photoview.PhotoView
         android:id="@+id/bitmap_image_view"

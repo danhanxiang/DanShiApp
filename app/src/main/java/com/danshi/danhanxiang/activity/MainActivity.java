@@ -15,8 +15,9 @@ import com.danshi.danhanxiang.danshiapp.R;
 import com.danshi.danhanxiang.fragment.MeizhiFragment;
 import com.danshi.danhanxiang.fragment.MeizhiFragment2;
 import com.danshi.danhanxiang.fragment.NewsMainFragment;
-import com.danshi.danhanxiang.fragment.WeiXinFragment;
 import com.danshi.danhanxiang.fragment.TechFragment;
+import com.danshi.danhanxiang.fragment.WeiXinFragment;
+import com.danshi.danhanxiang.view.TestviewActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -107,7 +108,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 toolbar.setTitle("技术交流");
                 break;
             case R.id.nav_share:
-                startActivity(new Intent(this,AboutMeActivity.class));
+//                startActivity(new Intent(this,AboutMeActivity.class));
+                startActivity(new Intent(this, TestviewActivity.class));
                 break;
             case R.id.nav_send:
 //                showMeiZhiFragment();

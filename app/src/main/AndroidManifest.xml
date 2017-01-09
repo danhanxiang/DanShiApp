@@ -33,6 +33,8 @@
         <activity android:name="com.danshi.danhanxiang.activity.TechDetailActivity"/>
         <activity android:name="com.danshi.danhanxiang.activity.WeiXinDetailActivity"/>
 
+        <activity android:name="com.danshi.danhanxiang.view.TestviewActivity"/>
+
     </application>
 
 </manifest>
